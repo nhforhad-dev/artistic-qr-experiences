@@ -29,7 +29,8 @@ export function Hero() {
     { label: "Reviews", value: "g.page/review" },
   ];
 
-  const s = styles[styleIndex];
+  const s = styles[styleIndex]!;
+  const dest = destinations[destIndex]!;
 
   return (
     <section id="top" className="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24">
@@ -69,7 +70,7 @@ export function Hero() {
             <div className="mt-5 text-center">
               <p className="text-xs text-muted-foreground">Currently pointing to</p>
               <p className="mt-1 truncate font-display text-sm font-medium text-foreground">
-                {destinations[destIndex].value}
+                {dest.value}
               </p>
             </div>
 
@@ -87,7 +88,7 @@ export function Hero() {
               <HeroCard
                 icon={<Link2 className="size-4" />}
                 title="Destination"
-                value={destinations[destIndex].label}
+                value={dest.label}
                 active={facet === "destination"}
                 onActivate={() => {
                   setFacet("destination");
